@@ -33,13 +33,24 @@ void draw() {
   tempMap();
   colourPicker();
   drawMap();
+  lilnotes();
   
 }
-
+void lilnotes(){
+  stroke(#EDCE4F);
+  rect(100, 750, 20,20);
+  textFont(f,20);        
+  text("Advancing" ,150, 770);
+  stroke(#9B090C);
+  rect(100, 800, 20,20);
+  text("Retreating" ,150, 820);
+    textFont(f,40);        
+  text("Minards Map Recreation" ,20, 50);
+}
 void drawMap(){
   for (int i=0;i<table.getRowCount()-1; i++){
     TableRow row= table.getRow(i);
-    stroke(20);
+    stroke(0);
     strokeWeight(20);
     fill(0);
       float valX= row.getFloat("LONC");
@@ -47,7 +58,7 @@ void drawMap(){
       String city=row.getString("CITY");
       float posX = map(valX, 24, 37.6, offsetX, offsetX + plotW);
       float posY = height-map(valY, 54.3, 55.8, offsetY1, offsetY2 + plotH);
-      textFont(f,16);        
+      textFont(f,20);        
       text(city,posX+20,posY);
       point(posX,posY);
     }
@@ -128,7 +139,8 @@ void tempMap(){
   line(100,1100,2400,1100);
   
   fill(#AAAAAA);
-  textFont(f,16);        
+  textFont(f,16);
+  text("Temp, Degrees Celsius",2310,850);
   text("0 deg",2400,900);
   text("-10 deg",2400,1000);
   text("-20 deg",2400,1100);
